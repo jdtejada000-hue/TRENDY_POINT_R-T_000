@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRENDY POINT R&T | Digital Sales Specialist</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dark-theme">
+    <header class="glass-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="trendy">TRENDY</span><span class="point">POINT</span> <span class="rt">R&T</span>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="productSearch" placeholder="Busca tecnología de vanguardia...">
+            </div>
+            <nav>
+                <button id="cartBtn" class="cart-trigger">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-glow"></div>
+            <div class="container hero-content">
+                <div class="hero-text" data-gsap="fade-up">
+                    <span class="badge">Vanguardia Digital</span>
+                    <h1>Eleva tu <span class="text-gradient">Estilo de Vida</span> con Tecnología de Punta</h1>
+                    <p>Bienvenido a la experiencia TRENDY POINT R&T. Como tu asesor especializado, te guiaré hacia las
+                        soluciones más exclusivas en wearables, audio y automatización.</p>
+                    <div class="hero-actions">
+                        <a href="#catalog" class="btn btn-primary">Explorar Inventario</a>
+                        <a href="#checkout" class="btn btn-outline">Ver Pedido</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="catalog">
+            <div class="container">
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-category="all">Todos</button>
+                    <button class="filter-btn" data-category="Smartwatch">Wearables</button>
+                    <button class="filter-btn" data-category="Audio">Audio</button>
+                    <button class="filter-btn" data-category="TV & Streaming">Streaming</button>
+                    <button class="filter-btn" data-category="Gaming">Gaming</button>
+                    <button class="filter-btn" data-category="Vape">Vapes</button>
+                    <button class="filter-btn" data-category="Accesorios">Accesorios</button>
+                    <button class="filter-btn" data-category="Hogar">Hogar</button>
+                </div>
+                <div id="productGrid" class="product-grid">
+                    <!-- Products rendered by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Side Cart/Order Drawer -->
+    <div id="sideDrawer" class="side-drawer">
+        <div class="drawer-header">
+            <h3>Tu Selección Exclusiva</h3>
+            <button id="closeDrawer" class="close-btn">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Items -->
+        </div>
+        <div class="drawer-footer">
+            <div class="total-box">
+                <span>Total Inversión:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button id="proceedToCheckout" class="btn btn-primary full-width">Finalizar Pedido</button>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h2>Detalles de Entrega y Facturación</h2>
+                <p>Nuestros estándares de logística garantizan que tu artículo llegue en el momento perfecto.</p>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="orderForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Nombre Completo</label>
+                        <input type="text" id="fullName" required placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="cedula">Cédula de Ciudadanía</label>
+                        <input type="text" id="cedula" required placeholder="Para facturación legal">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono de Contacto</label>
+                    <input type="tel" id="phone" required placeholder="+57 ...">
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección Exacta de Entrega</label>
+                    <input type="text" id="address" required placeholder="Calle, Carrera, Conjunto, Apto...">
+                </div>
+                <div class="form-group">
+                    <label>Franja Horaria Preferida</label>
+                    <div class="time-slots">
+                        <label class="slot-opt">
+                            <input type="radio" name="timeSlot" value="Mañana" checked>
+                            <span>Mañana</span>
+                        </label>
+                        <label class="slot-opt">
+                            <input type="radio" name="timeSlot" value="Tarde">
+                            <span>Tarde</span>
+                        </label>
+                        <label class="slot-opt">
+                            <input type="radio" name="timeSlot" value="Noche">
+                            <span>Noche</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Confirmar Adquisición</button>
+                <p class="form-disclaimer"><i class="fas fa-lock"></i> Transacción 100% segura. Pago contra entrega o
+                    transferencia.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Specialist Agent -->
+    <div class="agent-float">
+        <a href="https://wa.me/573000000000" target="_blank" class="agent-btn">
+            <div class="agent-pulse"></div>
+            <i class="fab fa-whatsapp"></i>
+            <span class="agent-tooltip">¿Te asesoro con tu elección técnica?</span>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
